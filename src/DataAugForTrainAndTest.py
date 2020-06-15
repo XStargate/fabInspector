@@ -94,7 +94,7 @@ if __name__ == '__main__':
     # test data augmentation: light, add noise, flip
     dataAug_valid = DataAugmentForObjectDetection(rotation_rate=0,
                 crop_rate=0, shift_rate=0, change_light_rate=0.5,
-                add_noise_rate=0.5, flip_rate=0.5, cutout_rate=0) 
+                add_noise_rate=0.5, flip_rate=0.5, cutout_rate=0)
 
     source_pic_root_path = '../data/data_split_train'
     source_xml_root_path = '../data/xml'
