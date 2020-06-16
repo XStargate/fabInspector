@@ -4,9 +4,9 @@ import os
 import shutil
 from tqdm import tqdm
 
-source_pic_root = '../data/data_split_train'
-aug_pic_root = '../data/data_AugForTrain'
-target_pic_root = '../data/data_for_train'
+source_pic_root = '../data/processed/data_train'
+aug_pic_root = '../data/processed/data_train_aug'
+target_pic_root = '../data/processed/data_train_final'
 if os.path.exists(target_pic_root):
     shutil.rmtree(target_pic_root)
 os.makedirs(target_pic_root)

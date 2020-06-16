@@ -1,0 +1,24 @@
+<annotation>
+	<filename>Fb27_13_54_44.jpg</filename>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2560</width>
+		<height>1920</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>dropped_pick</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1384</xmin>
+			<ymin>564</ymin>
+			<xmax>1450</xmax>
+			<ymax>1554</ymax>
+		</bndbox>
+	</object>
+</annotation>

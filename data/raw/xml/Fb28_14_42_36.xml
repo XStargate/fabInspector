@@ -1,0 +1,24 @@
+<annotation>
+	<filename>Fb28_14_42_36.jpg</filename>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2560</width>
+		<height>1920</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>missing_pick</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>4</xmin>
+			<ymin>570</ymin>
+			<xmax>2558</xmax>
+			<ymax>656</ymax>
+		</bndbox>
+	</object>
+</annotation>

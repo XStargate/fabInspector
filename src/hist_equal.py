@@ -26,7 +26,7 @@ def write_images_to_folder(folder, filenames, imgs):
 
 
 def main():
-    data_path = '../data/data_for_valid/defect_03/'
+    data_path = '../data/raw/pics/'
     filenames, images = load_images_from_folder(data_path)
 
     # select the method of histogram equalization (i.e. 'global' or 'regional')
@@ -44,7 +44,7 @@ def main():
 
         equal_imgs.append(res)
 
-    output_path = '../data/tmp2/'
+    output_path = '../data/processed/data_hist/'
     write_images_to_folder(output_path, filenames, equal_imgs)
     
 if __name__ == '__main__':

@@ -1,0 +1,24 @@
+<annotation>
+	<filename>Fb27_13_08_36.jpg</filename>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2560</width>
+		<height>1920</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>others</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>261</xmin>
+			<ymin>566</ymin>
+			<xmax>963</xmax>
+			<ymax>1286</ymax>
+		</bndbox>
+	</object>
+</annotation>

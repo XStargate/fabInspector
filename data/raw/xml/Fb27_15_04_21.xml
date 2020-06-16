@@ -1,0 +1,24 @@
+<annotation>
+	<filename>Fb27_15_04_21.jpg</filename>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2560</width>
+		<height>1920</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chafed</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1418</xmin>
+			<ymin>609</ymin>
+			<xmax>1538</xmax>
+			<ymax>754</ymax>
+		</bndbox>
+	</object>
+</annotation>

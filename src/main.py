@@ -17,8 +17,8 @@ from netWork import resnet152_base as resnet_b
 from losses import FocalLoss
 
 def train():
-    train_dir = '../data/data_for_train_test'
-    valid_dir = '../data/data_for_valid_test'
+    train_dir = '../data/processed/data_train_final'
+    valid_dir = '../data/processed/data_test'
 
     transf = transforms.Compose([
         transforms.Resize((550, 600), interpolation=Image.ANTIALIAS),
@@ -52,7 +52,7 @@ def train():
     with torch.no_grad():
         for i, data in enumerate(train_loader):
             train_pred11, train_pred2 = model(data[0].cuda())
-            
+
             batch_loss11 = loss11(train_pred11, data[1].cuda())
             class2 = torch.tensor([1 if i==torch.tensor([10]) else 0 for i in data[1]])
 
