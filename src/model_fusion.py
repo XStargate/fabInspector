@@ -134,7 +134,6 @@ def main():
             val_acc += val_a
             val_loss += val_l
 
-        print('valid_img.len, val_acc = ', valid_img.__len__(), val_acc)
         print('Val Acc: %3.6f loss: %3.6f' % (val_acc/valid_img.__len__(), val_loss/valid_img.__len__()))
 
 if __name__ == '__main__':
