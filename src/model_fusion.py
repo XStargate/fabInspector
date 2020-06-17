@@ -118,7 +118,11 @@ def main():
     models = []
     for i in range(len(model_dicts)):
         model_dict_path = join(model_path, model_dicts[i])
-        model = resnet_b().cuda()
+        model_type = model_dict_path.split('/')[-1][:3]
+        if (model_type == 'res'):
+            model = resnet_b().cuda()
+        elif (model_type == 'den'):
+            model = densenet_b().cuda()
         model_trained, checkpoint = load_model_dict(model_dict_path, model)
 
         models.append(model_trained)
