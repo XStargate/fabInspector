@@ -93,8 +93,6 @@ def model_combine(models, data, loss11, loss2):
 
     val_loss_avg = np.average(np.array(val_losses))
 
-    print('val_acc_avg, data[1], val_losses = ', val_acc_avg, data[1], val_losses)
-
     return val_acc, val_loss_avg
 
 
