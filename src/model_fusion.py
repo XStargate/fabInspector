@@ -58,7 +58,7 @@ def model_combine(models, data, loss11, loss2):
     for model in models:
 
         model.eval()
-        
+
         val_pred11, val_pred2 = model(data[0].cuda())
         val_pred11_hor, val_pred2_hor = model(torch.flip(data[0], [3]).cuda())
         val_pred11_ver, val_pred2_ver = model(torch.flip(data[0], [2]).cuda())
