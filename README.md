@@ -12,10 +12,17 @@ We collect more than 2000 fabric images as our dataset. There are two major diff
 <center>Fig 1. the histogram of number of images for normal fabrics and 10 different kinds of defects</center>
 
 ![data_area](https://github.com/XStargate/insight_project/blob/master/pics/data_area.png)
-<center>Fig 2. the area distribution of fabric defects</center>
+<center>Fig 2. the area distribution of fabric defects. About 82% of defects have area less than 1%, while the area of about 17% of defects is between 1% and 10%. And the rest 1% of defects have area greater than 10%.</center>
 
 ## Data process
+### Histogram equalization
+Histogram equalization is a computer image processing technique used to improve contrast in images.It accomplishes this by effectively spreading out the most frequent intensity values, i.e. streatching out the intensity range of the image.  Histogram equalization is one of the best methods for image enhancement without loss of any information. Our most images have very skewed distribution on grayness and/or brightness, resulting in defects merged with normal background and hard to be identified. Therefore, the histogram equalization can significantly increase the contrast of most defect images (Fig. 3), which contributes a lot to improve the classification accuracy of our model.
 
+![hist_equal](https://github.com/XStargate/insight_project/blob/master/pics/hist_equal.png)
+<center>Fig 3. (a) the original images of defects. (b) the images of defects processed by the histogram equalization algorithm.</center>
 
+### Data augmentation
+Since the number of defective fabric images are very limited compared to normal fabrics. We implement a few data augmentation methods that are common and standard in the computer vision field to increase the dataset of defective fabrics, including flip, rotation, shift, crop, and slightly changing on grayness, brightness, etc.
 
+## Framework / network
 
