@@ -8,4 +8,4 @@ In the textile or fabric manufacturing industry, fabric defects caused by machin
 ## Data
 We collect more than 2000 fabric images as our dataset. There are two major difficulties and challenges in our dataset. First, our dataset is very imbalanced, in which more than half images are normal fabrics, and rest images are belong to 10 different defects.
 
-![data_imbalance](https://github.com/XStargate/insight_project/blob/master/pics/data_imbalance.png "data_imbalance")
+![data_imbalance](https://github.com/XStargate/insight_project/blob/master/pics/data_imbalance.png)
