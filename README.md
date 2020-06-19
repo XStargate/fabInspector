@@ -26,3 +26,12 @@ Since the number of defective fabric images are very limited compared to normal 
 
 ## Framework / network
 
+We implement the transfer learning based on the pretrained ResNet152 and/or DenseNet161 models, and some other pretrained models like vgg16 and Inception-v4 can be also tried in our netwrok. The Fig. 4(a) shows the structure of our network, in which the processed images are input into the pretrained model and then extract feature of each channel by a global pooling layer. The key point in this network is to split the network into two branches, of which one is to do binary classification between normal and defective fabrics, and the other one is to classify 10 different kinds of fabrics from normal fabrics. The reason we have an additional branch of binary classification is to reduce the impact of dataset imbalance because the accumulative dataset from all defects has a comparable size with normal fabric dataset. Our experimental results indicate the binary classification is helpful to increase the accuracy of eventual classification on 11 classes.
+We select the focal loss function as our loss function (Fig. 4(b)). 
+
+![network_loss](https://github.com/XStargate/insight_project/blob/master/pics/network_loss.png)
+<center>Fig 4. (a) the network structure used in this project and the pretrained models we use are ResNet152 and DenseNet161. (b) the probability of ground truth of Focal loss function, which is the loss funtion used in this project (Tsung-Yi Lin et al. 2018).</center>
+
+## Results
+
+## Summary and future works
