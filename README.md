@@ -26,17 +26,20 @@ Since the number of defective fabric images are very limited compared to normal 
 
 ## Framework / network
 
-We implement the transfer learning based on the pretrained ResNet152 and/or DenseNet161 models, and some other pretrained models like vgg16 and Inception-v4 can be also tried in our netwrok. The Fig. 4(a) shows the structure of our network, in which the processed images are input into the pretrained model and then extract feature of each channel by a global pooling layer. The key point in this network is to split the network into two branches, of which one is to do binary classification between normal and defective fabrics, and the other one is to classify 10 different kinds of fabrics from normal fabrics. The reason we have an additional branch of binary classification is to reduce the impact of dataset imbalance because the accumulative dataset from all defects has a comparable size with normal fabric dataset. Our experimental results indicate the binary classification is helpful to increase the accuracy of eventual classification on 11 classes.  
+We implement the transfer learning based on the pretrained ResNet152 and/or DenseNet161 models, and some other pretrained models like vgg16 and Inception-v4 can be also tried in our netwrok. The Fig. 4(a) shows the structure of our network, in which the processed images are input into the pretrained model and then extract feature of each channel by a global pooling layer. The key point in this network is to split the network into two branches, of which one is to do binary classification between normal and defective fabrics, and the other one is to classify 10 different kinds of fabrics from normal fabrics. The reason we have an additional branch of binary classification is to reduce the impact of dataset imbalance because the accumulative dataset from all defects has a comparable size with normal fabric dataset. Our experimental results indicate the binary classification is helpful to increase the accuracy of eventual classification on 11 classes.
+
 We select the focal loss function as our loss function (Fig. 4(b)), which is defined in the following equation:
 ![focal_loss](https://github.com/XStargate/insight_project/blob/master/pics/focal_loss.png)
 
-where ![p_t](https://github.com/XStargate/insight_project/blob/master/pics/p_t.png) is the classification probability; ![alpha_t](https://github.com/XStargate/insight_project/blob/master/pics/alpha_t.png) is the weights on different classes; ![gamma](https://github.com/XStargate/insight_project/blob/master/pics/gamma.png) is focusing parameter (default is 2) and ![p_t_gamma](https://github.com/XStargate/insight_project/blob/master/pics/p_t_gamma.png) is called modulating factor, which is to decrease the weights on classes that are easily classified, which increase the weight on difficult classifications. There are two major advantages of focal loss function compared to the cross entropy loss function. The first advantage is that it can mitigate the influence of dataset imbalance by adding more weights on small dataset manually, and the other advantage is it can automatically increase the weights on classes that hard to be classified correctly on the fly.__
-Since our network is splitted to two branches on both 2 classes and 11 classes, the loss is defined in the following equation:
-$$Loss$$
-
+where ![p_t](https://github.com/XStargate/insight_project/blob/master/pics/p_t.png) is the classification probability; ![alpha_t](https://github.com/XStargate/insight_project/blob/master/pics/alpha_t.png) is the weights on different classes; ![gamma](https://github.com/XStargate/insight_project/blob/master/pics/gamma.png) is focusing parameter (default is 2) and ![p_t_gamma](https://github.com/XStargate/insight_project/blob/master/pics/p_t_gamma.png) is called modulating factor, which is to decrease the weights on classes that are easily classified, which increase the weight on difficult classifications. There are two major advantages of focal loss function compared to the cross entropy loss function. The first advantage is that it can mitigate the influence of dataset imbalance by adding more weights on small dataset manually, and the other advantage is it can automatically increase the weights on classes that hard to be classified correctly on the fly.
 
 ![network_loss](https://github.com/XStargate/insight_project/blob/master/pics/network_loss.png)
 <center>Fig 4. (a) the network structure used in this project and the pretrained models we use are ResNet152 and DenseNet161. (b) the probability of ground truth of Focal loss function, which is the loss funtion used in this project (Tsung-Yi Lin et al. 2018).</center>
+
+Since our network is splitted to two branches on both 2 classes and 11 classes, the loss is defined in the following equation:
+![loss](https://github.com/XStargate/insight_project/blob/master/pics/loss.png)
+
+where 70% of total loss is from the loss on 11 classifications and the rest 30% is from the loss on 2 classifications. We try a few different weights on those two types of classifications and turns out 70%/30% can achieve best accuracy.
 
 ## Results
 
