@@ -17,7 +17,7 @@ We collect more than 2000 fabric images as our dataset. There are two major diff
 ## Data process
 
 ### Multi-scale window
-Since the original images have high resolution (2520 * 1960) and the shape of defects varies across different defects,in which the area of most defects is very small, we decided to use the multi-scale window sweeping across the images instead of the entire image as our training dataset, which also helps to increase the amount of dastaset. We select windows with three different kinds of windows (i.e. 640*640, 800*800, 960*960) in order to capture the different sizes of defects (Fig. 3). Each original image selects totally 24 (6*4) windows for every size of window, in which we only keep the windows containing defects with iou greater than 0.5 as our training dastaset.
+Since the original images have high resolution (2520 * 1960) and the shape of defects varies across different defects,in which the area of most defects is very small, we decided to use the multi-scale window sweeping across the images instead of the entire image as our training dataset, which also helps to increase the amount of dastaset. We select windows with three different kinds of windows (i.e. 640 * 640, 800 * 800, 960 * 960) in order to capture the different sizes of defects (Fig. 3). Each original image selects totally 24 (6*4) windows for every size of window, in which we only keep the windows containing defects with iou greater than 0.5 as our training dastaset.
 
 ![multi_windows](https://github.com/XStargate/insight_project/blob/master/pics/multi_windows.png)
 <center>Fig 3. the multi-scale windows of imamges</center>
@@ -42,7 +42,7 @@ We select the focal loss function as our loss function (Fig. 5(b)), which is def
 where ![p_t](https://github.com/XStargate/insight_project/blob/master/pics/p_t.png) is the classification probability; ![alpha_t](https://github.com/XStargate/insight_project/blob/master/pics/alpha_t.png) is the weights on different classes; ![gamma](https://github.com/XStargate/insight_project/blob/master/pics/gamma.png) is focusing parameter (default is 2) and ![p_t_gamma](https://github.com/XStargate/insight_project/blob/master/pics/p_t_gamma.png) is called modulating factor, which is to decrease the weights on classes that are easily classified, while increase the weight on difficult classifications. There are two major advantages of focal loss function compared to the cross entropy loss function. The first advantage is that it can mitigate the influence of dataset imbalance by adding more weights on small dataset manually, and the other advantage is it can automatically increase the weights on classes that hard to be classified correctly on the fly.
 
 ![network_loss](https://github.com/XStargate/insight_project/blob/master/pics/network_loss.png)
-<center>Fig 5. (a) the network structure used in this project and the pretrained models we use are SeResNet101, ResNet152 and DenseNet161. (b) the probability of ground truth of Focal loss function, which is the loss funtion used in this project (Tsung-Yi Lin et al. 2018).</center>
+<center>Fig 5. (a) the network structure used in this project and the pretrained models we use are SeResNet101, ResNet152 and DenseNet161. (b) the probability of ground truth of Focal loss function, which is the loss funtion used in this project (Tsung-Yi Lin et al. 2018).</center>  
 
 Since our network is splitted to two branches on both 2 classes and 11 classes, the loss is defined in the following equation:
 
@@ -54,7 +54,7 @@ where 70% of total loss is from the loss on 11 classifications and the rest 30% 
 In this project, we obtain the accuracy about 86% on the test data by using SeResNet101 and multi-scale windows (Fig. 6), while the accuracy using ResNet152, DenseNet161 and entire image is only about 79%. The accuracy is higher than common manual inspection accuracy between 50% and 65%, so we believe the model can help fabric manufacturing industry increase speed and accuracy on fabric defect detection. 
 
 ![accuracy](https://github.com/XStargate/insight_project/blob/master/pics/accuracy.png)
-<center>Fig 6. the accuracy of model based on SeResNet101 for each epoch, where the blue lines are accuracy of training dataset and red lines are accuracy of testing dataset.</center>
+<center>Fig 6. the accuracy of model based on SeResNet101 for each epoch, where the blue lines are accuracy of training dataset and red lines are accuracy of testing dataset.</center>  
 
 For this project, there are still a lot of other techniques worth exploring to increase the accuracy continuously in the future. For example, we can try to apply some object detection techniques on this project, like fast-RCNN, spatial pyramid pooling, Yolo network to increase the accuracy and speed of detection.
 
