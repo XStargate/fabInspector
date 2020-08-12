@@ -15,8 +15,15 @@ cp_to_train.py : copy the original images from ../data/processed/data_train/ to 
 
 netWork.py : the networks used in this project.  
 
-main.py : the main function for taining the model.
+main.py : the main function for training the model.
 
 model_fusion.py : combine a few different models and test it on the testing dataset.  
 
 run.sh : a bash script to run all steps automatically.  
+
+## new version with SeResNet101 and multi-scale windows
+slide_window.py : get the multi-scale slided windows for original image.  
+
+split_train_test_data.py : split the normal fabric images and 10 different kinds of defective fabric images into different folders and extract 10% data as our test dataset.  
+
+main_se.py : the main function for training the model.
